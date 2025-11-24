@@ -24,3 +24,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exclude markdown files
+*.md
+
+# Exclude cursor files
+*.cursor
+
+# Exclude text files
+*.txt

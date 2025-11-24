@@ -12,9 +12,13 @@
   }
   html {
     @apply overflow-x-hidden;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
   body {
     @apply bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar min-h-svh w-full;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Override Radix scroll locking for sticky headers */
@@ -35,6 +39,144 @@
     textarea {
       font-size: 16px !important;
     }
+  }
+
+  /* Global hover states - use primary color */
+  button.bg-primary:hover,
+  [class*='bg-primary']:hover {
+    background-color: var(--primary-hover) !important;
+  }
+
+  /* Link hover states */
+  a.text-primary:hover {
+    color: var(--primary-hover) !important;
+  }
+
+  /* Loader/Spinner styles */
+  .loader,
+  [class*='spinner'],
+  [class*='loading'] {
+    border-color: var(--loader-background);
+    border-top-color: var(--loader-color);
+  }
+
+  /* Progress bar */
+  [role='progressbar'] {
+    background-color: var(--loader-color);
+  }
+
+  /* Input fields - ONLY border highlight on hover, no background change */
+  input,
+  textarea,
+  select,
+  [data-slot='input'],
+  [data-slot='textarea'],
+  [data-slot='select-trigger'] {
+    background-color: hsl(var(--background)) !important;
+    background: hsl(var(--background)) !important;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover,
+  [data-slot='input']:hover,
+  [data-slot='textarea']:hover,
+  [data-slot='select-trigger']:hover {
+    border-color: hsl(var(--primary) / 0.5) !important;
+    background-color: hsl(var(--background)) !important;
+    background: hsl(var(--background)) !important;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus,
+  [data-slot='input']:focus,
+  [data-slot='textarea']:focus,
+  [data-slot='select-trigger']:focus,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [data-slot='input']:focus-visible,
+  [data-slot='textarea']:focus-visible,
+  [data-slot='select-trigger']:focus-visible {
+    border-color: hsl(var(--primary)) !important;
+    background-color: hsl(var(--background)) !important;
+    background: hsl(var(--background)) !important;
+  }
+
+  /* Checkbox hover - border only */
+  [data-slot='checkbox']:hover {
+    border-color: hsl(var(--primary) / 0.5) !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  [data-slot='checkbox']:focus {
+    border-color: hsl(var(--primary)) !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  /* Radio button hover - border only */
+  [data-slot='radio-group-item']:hover {
+    border-color: hsl(var(--primary) / 0.5) !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  [data-slot='radio-group-item']:focus {
+    border-color: hsl(var(--primary)) !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  /* Switch hover - border only */
+  [data-slot='switch']:hover {
+    border-color: hsl(var(--primary) / 0.5) !important;
+  }
+
+  [data-slot='switch']:focus {
+    border-color: hsl(var(--primary)) !important;
+  }
+
+  /* Table row hover - ONLY left border highlight, no background change */
+  tr:hover {
+    border-left: 2px solid hsl(var(--primary) / 0.5) !important;
+  }
+
+  /* Table cells with inputs - ONLY border highlight, no background change */
+  td input:hover,
+  td textarea:hover,
+  td select:hover,
+  td [data-slot='input']:hover,
+  td [data-slot='textarea']:hover,
+  td [data-slot='select-trigger']:hover {
+    border-color: hsl(var(--primary) / 0.5) !important;
+    background-color: hsl(var(--background)) !important;
+    background: hsl(var(--background)) !important;
+  }
+
+  td input:focus,
+  td textarea:focus,
+  td select:focus,
+  td [data-slot='input']:focus,
+  td [data-slot='textarea']:focus,
+  td [data-slot='select-trigger']:focus,
+  td input:focus-visible,
+  td textarea:focus-visible,
+  td select:focus-visible,
+  td [data-slot='input']:focus-visible,
+  td [data-slot='textarea']:focus-visible,
+  td [data-slot='select-trigger']:focus-visible {
+    border-color: hsl(var(--primary)) !important;
+    background-color: hsl(var(--background)) !important;
+    background: hsl(var(--background)) !important;
+  }
+
+  /* Hide scrollbar for tabs on mobile */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

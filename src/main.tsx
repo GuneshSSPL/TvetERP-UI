@@ -13,6 +13,8 @@ import { handleServerError } from '@/lib/handle-server-error'
 import { DirectionProvider } from './context/direction-provider'
 import { FontProvider } from './context/font-provider'
 import { ThemeProvider } from './context/theme-provider'
+import { TenantThemeProvider } from './context/tenant-theme-provider'
+import { defaultTheme } from './lib/demo-themes'
 // Generated Routes
 import { routeTree } from './routeTree.gen'
 // Styles
@@ -95,11 +97,13 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <FontProvider>
-            <DirectionProvider>
-              <RouterProvider router={router} />
-            </DirectionProvider>
-          </FontProvider>
+          <TenantThemeProvider tenantConfig={defaultTheme}>
+            <FontProvider>
+              <DirectionProvider>
+                <RouterProvider router={router} />
+              </DirectionProvider>
+            </FontProvider>
+          </TenantThemeProvider>
         </ThemeProvider>
       </QueryClientProvider>
     </StrictMode>

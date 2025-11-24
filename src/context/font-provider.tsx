@@ -18,7 +18,8 @@ const FontContext = createContext<FontContextType | null>(null)
 export function FontProvider({ children }: { children: React.ReactNode }) {
   const [font, _setFont] = useState<Font>(() => {
     const savedFont = getCookie(FONT_COOKIE_NAME)
-    return fonts.includes(savedFont as Font) ? (savedFont as Font) : fonts[0]
+    // Default to 'roboto' if no saved font preference
+    return fonts.includes(savedFont as Font) ? (savedFont as Font) : 'roboto'
   })
 
   useEffect(() => {
@@ -30,8 +31,20 @@ export function FontProvider({ children }: { children: React.ReactNode }) {
       root.classList.add(`font-${font}`)
     }
 
+    // Apply font immediately on mount
     applyFont(font)
   }, [font])
+
+  // Apply Roboto as default on initial mount if no font class exists
+  useEffect(() => {
+    const root = document.documentElement
+    const hasFontClass = Array.from(root.classList).some((cls) =>
+      cls.startsWith('font-')
+    )
+    if (!hasFontClass) {
+      root.classList.add('font-roboto')
+    }
+  }, [])
 
   const setFont = (font: Font) => {
     setCookie(FONT_COOKIE_NAME, font, FONT_COOKIE_MAX_AGE)
@@ -40,7 +53,7 @@ export function FontProvider({ children }: { children: React.ReactNode }) {
 
   const resetFont = () => {
     removeCookie(FONT_COOKIE_NAME)
-    _setFont(fonts[0])
+    _setFont('roboto') // Reset to Roboto as default
   }
 
   return (

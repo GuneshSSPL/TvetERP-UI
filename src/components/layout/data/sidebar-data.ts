@@ -21,6 +21,10 @@ import {
   AudioWaveform,
   Command,
   GalleryVerticalEnd,
+  Shield,
+  GraduationCap,
+  UserCheck,
+  BookOpen,
 } from 'lucide-react'
 import { ClerkLogo } from '@/assets/clerk-logo'
 import { type SidebarData } from '../types'
@@ -58,25 +62,19 @@ export const sidebarData: SidebarData = {
           icon: LayoutDashboard,
         },
         {
-          title: 'Tasks',
-          url: '/tasks',
-          icon: ListTodo,
+          title: 'Students',
+          url: '/students',
+          icon: GraduationCap,
         },
         {
-          title: 'Apps',
-          url: '/apps',
-          icon: Package,
+          title: 'Teachers',
+          url: '/teachers',
+          icon: UserCheck,
         },
         {
-          title: 'Chats',
-          url: '/chats',
-          badge: '3',
-          icon: MessagesSquare,
-        },
-        {
-          title: 'Users',
-          url: '/users',
-          icon: Users,
+          title: 'Admin',
+          url: '/admin',
+          icon: Shield,
         },
         {
           title: 'Secured by Clerk',

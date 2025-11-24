@@ -9,16 +9,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
-        destructive:
-          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        outline:
-          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+          'bg-muted border-2 border-primary text-primary shadow-xs hover:border-primary focus:border-primary',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
+          'bg-muted border-2 border-[hsl(var(--secondary))] text-[hsl(var(--secondary))] shadow-xs hover:border-[hsl(var(--secondary))] focus:border-[hsl(var(--secondary))]',
+        tertiary:
+          'bg-muted border-2 border-[hsl(var(--tertiary))] text-[hsl(var(--tertiary))] shadow-xs hover:border-[hsl(var(--tertiary))] focus:border-[hsl(var(--tertiary))]',
+        destructive:
+          'bg-muted border-2 border-destructive text-destructive shadow-xs hover:border-destructive focus:border-destructive focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
+        outline:
+          'border-2 bg-background shadow-xs hover:border-primary/50 hover:bg-background dark:bg-background dark:border-input dark:hover:border-primary/50 dark:hover:bg-background',
         ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'border-2 border-transparent hover:border-primary/50 hover:text-primary dark:hover:text-primary',
+        link: 'text-primary underline-offset-4 hover:underline border-0',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',

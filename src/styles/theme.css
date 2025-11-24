@@ -8,8 +8,11 @@
   --popover-foreground: oklch(0.129 0.042 264.695);
   --primary: oklch(0.208 0.042 265.755);
   --primary-foreground: oklch(0.984 0.003 247.858);
+  --primary-hover: var(--primary); /* Will be overridden by theme provider */
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
+  --tertiary: oklch(0.8 0.03 250); /* Will be overridden by theme provider */
+  --tertiary-foreground: oklch(0.129 0.042 264.695);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
@@ -17,12 +20,12 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: var(--primary); /* Use primary for focus rings */
+  --chart-1: var(--primary); /* Will be overridden by theme provider */
+  --chart-2: var(--secondary); /* Will be overridden by theme provider */
+  --chart-3: var(--accent); /* Will be overridden by theme provider */
+  --chart-4: var(--primary-hover); /* Will be overridden by theme provider */
+  --chart-5: var(--primary); /* Will be overridden by theme provider */
 
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
@@ -32,6 +35,10 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
+  
+  /* Loader/Spinner colors - use primary */
+  --loader-color: var(--primary);
+  --loader-background: var(--muted);
 }
 
 .dark {
@@ -61,6 +68,7 @@
 }
 
 @theme inline {
+  --font-roboto: 'Roboto', 'sans-serif';
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';
 
@@ -78,6 +86,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);

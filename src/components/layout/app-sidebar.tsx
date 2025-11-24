@@ -1,3 +1,12 @@
+/**
+ * App Sidebar Component
+ * 
+ * Main sidebar navigation with tenant switcher.
+ * Uses TenantSwitcher instead of TeamSwitcher for institution selection.
+ * 
+ * @see tvet-erp-frontend-architecture.plan.md for architecture details
+ */
+
 import { useLayout } from '@/context/layout-provider'
 import {
   Sidebar,
@@ -10,17 +19,18 @@ import {
 import { sidebarData } from './data/sidebar-data'
 import { NavGroup } from './nav-group'
 import { NavUser } from './nav-user'
-import { TeamSwitcher } from './team-switcher'
+import { TenantSwitcher } from './tenant-switcher'
 
 export function AppSidebar() {
   const { collapsible, variant } = useLayout()
   return (
     <Sidebar collapsible={collapsible} variant={variant}>
       <SidebarHeader>
-        <TeamSwitcher teams={sidebarData.teams} />
+        {/* Tenant Switcher - allows switching between institutions */}
+        <TenantSwitcher />
 
-        {/* Replace <TeamSwitch /> with the following <AppTitle />
-         /* if you want to use the normal app title instead of TeamSwitch dropdown */}
+        {/* Replace <TenantSwitcher /> with the following <AppTitle />
+         /* if you want to use the normal app title instead of tenant switcher */}
         {/* <AppTitle /> */}
       </SidebarHeader>
       <SidebarContent>
