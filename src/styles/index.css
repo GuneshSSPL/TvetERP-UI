@@ -66,42 +66,46 @@
   }
 
   /* Input fields - ONLY border highlight on hover, no background change */
-  input,
+  input:not([type='color']),
   textarea,
   select,
-  [data-slot='input'],
+  [data-slot='input']:not([type='color']),
   [data-slot='textarea'],
   [data-slot='select-trigger'] {
     background-color: hsl(var(--background)) !important;
     background: hsl(var(--background)) !important;
+    transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-property: border-color !important;
   }
 
-  input:hover,
+  input:not([type='color']):hover,
   textarea:hover,
   select:hover,
-  [data-slot='input']:hover,
+  [data-slot='input']:not([type='color']):hover,
   [data-slot='textarea']:hover,
   [data-slot='select-trigger']:hover {
     border-color: hsl(var(--primary) / 0.5) !important;
     background-color: hsl(var(--background)) !important;
     background: hsl(var(--background)) !important;
+    transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  input:focus,
+  input:not([type='color']):focus,
   textarea:focus,
   select:focus,
-  [data-slot='input']:focus,
+  [data-slot='input']:not([type='color']):focus,
   [data-slot='textarea']:focus,
   [data-slot='select-trigger']:focus,
-  input:focus-visible,
+  input:not([type='color']):focus-visible,
   textarea:focus-visible,
   select:focus-visible,
-  [data-slot='input']:focus-visible,
+  [data-slot='input']:not([type='color']):focus-visible,
   [data-slot='textarea']:focus-visible,
   [data-slot='select-trigger']:focus-visible {
     border-color: hsl(var(--primary)) !important;
     background-color: hsl(var(--background)) !important;
     background: hsl(var(--background)) !important;
+    transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   /* Checkbox hover - border only */
@@ -141,32 +145,34 @@
   }
 
   /* Table cells with inputs - ONLY border highlight, no background change */
-  td input:hover,
+  td input:not([type='color']):hover,
   td textarea:hover,
   td select:hover,
-  td [data-slot='input']:hover,
+  td [data-slot='input']:not([type='color']):hover,
   td [data-slot='textarea']:hover,
   td [data-slot='select-trigger']:hover {
     border-color: hsl(var(--primary) / 0.5) !important;
     background-color: hsl(var(--background)) !important;
     background: hsl(var(--background)) !important;
+    transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  td input:focus,
+  td input:not([type='color']):focus,
   td textarea:focus,
   td select:focus,
-  td [data-slot='input']:focus,
+  td [data-slot='input']:not([type='color']):focus,
   td [data-slot='textarea']:focus,
   td [data-slot='select-trigger']:focus,
-  td input:focus-visible,
+  td input:not([type='color']):focus-visible,
   td textarea:focus-visible,
   td select:focus-visible,
-  td [data-slot='input']:focus-visible,
+  td [data-slot='input']:not([type='color']):focus-visible,
   td [data-slot='textarea']:focus-visible,
   td [data-slot='select-trigger']:focus-visible {
     border-color: hsl(var(--primary)) !important;
     background-color: hsl(var(--background)) !important;
     background: hsl(var(--background)) !important;
+    transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   /* Hide scrollbar for tabs on mobile */

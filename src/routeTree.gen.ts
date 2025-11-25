@@ -42,6 +42,12 @@ import { Route as AuthenticatedSettingsDisplayRouteImport } from './routes/_auth
 import { Route as AuthenticatedSettingsAppearanceRouteImport } from './routes/_authenticated/settings/appearance'
 import { Route as AuthenticatedSettingsAccountRouteImport } from './routes/_authenticated/settings/account'
 import { Route as AuthenticatedErrorsErrorRouteImport } from './routes/_authenticated/errors/$error'
+import { Route as AuthenticatedSuperAdminTenantsIndexRouteImport } from './routes/_authenticated/super-admin/tenants/index'
+import { Route as AuthenticatedSuperAdminDashboardIndexRouteImport } from './routes/_authenticated/super-admin/dashboard/index'
+import { Route as AuthenticatedSuperAdminTenantsRegisterIndexRouteImport } from './routes/_authenticated/super-admin/tenants/register/index'
+import { Route as AuthenticatedSuperAdminTenantsIdIndexRouteImport } from './routes/_authenticated/super-admin/tenants/$id/index'
+import { Route as AuthenticatedSuperAdminTenantsIdSettingsIndexRouteImport } from './routes/_authenticated/super-admin/tenants/$id/settings/index'
+import { Route as AuthenticatedSuperAdminTenantsIdModulesIndexRouteImport } from './routes/_authenticated/super-admin/tenants/$id/modules/index'
 
 const ClerkRouteRoute = ClerkRouteRouteImport.update({
   id: '/clerk',
@@ -216,6 +222,42 @@ const AuthenticatedErrorsErrorRoute =
     path: '/errors/$error',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedSuperAdminTenantsIndexRoute =
+  AuthenticatedSuperAdminTenantsIndexRouteImport.update({
+    id: '/super-admin/tenants/',
+    path: '/super-admin/tenants/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSuperAdminDashboardIndexRoute =
+  AuthenticatedSuperAdminDashboardIndexRouteImport.update({
+    id: '/super-admin/dashboard/',
+    path: '/super-admin/dashboard/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSuperAdminTenantsRegisterIndexRoute =
+  AuthenticatedSuperAdminTenantsRegisterIndexRouteImport.update({
+    id: '/super-admin/tenants/register/',
+    path: '/super-admin/tenants/register/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSuperAdminTenantsIdIndexRoute =
+  AuthenticatedSuperAdminTenantsIdIndexRouteImport.update({
+    id: '/super-admin/tenants/$id/',
+    path: '/super-admin/tenants/$id/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSuperAdminTenantsIdSettingsIndexRoute =
+  AuthenticatedSuperAdminTenantsIdSettingsIndexRouteImport.update({
+    id: '/super-admin/tenants/$id/settings/',
+    path: '/super-admin/tenants/$id/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSuperAdminTenantsIdModulesIndexRoute =
+  AuthenticatedSuperAdminTenantsIdModulesIndexRouteImport.update({
+    id: '/super-admin/tenants/$id/modules/',
+    path: '/super-admin/tenants/$id/modules/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/clerk': typeof ClerkAuthenticatedRouteRouteWithChildren
@@ -249,6 +291,12 @@ export interface FileRoutesByFullPath {
   '/tasks': typeof AuthenticatedTasksIndexRoute
   '/teachers': typeof AuthenticatedTeachersIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
+  '/super-admin/dashboard': typeof AuthenticatedSuperAdminDashboardIndexRoute
+  '/super-admin/tenants': typeof AuthenticatedSuperAdminTenantsIndexRoute
+  '/super-admin/tenants/$id': typeof AuthenticatedSuperAdminTenantsIdIndexRoute
+  '/super-admin/tenants/register': typeof AuthenticatedSuperAdminTenantsRegisterIndexRoute
+  '/super-admin/tenants/$id/modules': typeof AuthenticatedSuperAdminTenantsIdModulesIndexRoute
+  '/super-admin/tenants/$id/settings': typeof AuthenticatedSuperAdminTenantsIdSettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/clerk': typeof ClerkAuthenticatedRouteRouteWithChildren
@@ -280,6 +328,12 @@ export interface FileRoutesByTo {
   '/tasks': typeof AuthenticatedTasksIndexRoute
   '/teachers': typeof AuthenticatedTeachersIndexRoute
   '/users': typeof AuthenticatedUsersIndexRoute
+  '/super-admin/dashboard': typeof AuthenticatedSuperAdminDashboardIndexRoute
+  '/super-admin/tenants': typeof AuthenticatedSuperAdminTenantsIndexRoute
+  '/super-admin/tenants/$id': typeof AuthenticatedSuperAdminTenantsIdIndexRoute
+  '/super-admin/tenants/register': typeof AuthenticatedSuperAdminTenantsRegisterIndexRoute
+  '/super-admin/tenants/$id/modules': typeof AuthenticatedSuperAdminTenantsIdModulesIndexRoute
+  '/super-admin/tenants/$id/settings': typeof AuthenticatedSuperAdminTenantsIdSettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -316,6 +370,12 @@ export interface FileRoutesById {
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexRoute
   '/_authenticated/teachers/': typeof AuthenticatedTeachersIndexRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
+  '/_authenticated/super-admin/dashboard/': typeof AuthenticatedSuperAdminDashboardIndexRoute
+  '/_authenticated/super-admin/tenants/': typeof AuthenticatedSuperAdminTenantsIndexRoute
+  '/_authenticated/super-admin/tenants/$id/': typeof AuthenticatedSuperAdminTenantsIdIndexRoute
+  '/_authenticated/super-admin/tenants/register/': typeof AuthenticatedSuperAdminTenantsRegisterIndexRoute
+  '/_authenticated/super-admin/tenants/$id/modules/': typeof AuthenticatedSuperAdminTenantsIdModulesIndexRoute
+  '/_authenticated/super-admin/tenants/$id/settings/': typeof AuthenticatedSuperAdminTenantsIdSettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -351,6 +411,12 @@ export interface FileRouteTypes {
     | '/tasks'
     | '/teachers'
     | '/users'
+    | '/super-admin/dashboard'
+    | '/super-admin/tenants'
+    | '/super-admin/tenants/$id'
+    | '/super-admin/tenants/register'
+    | '/super-admin/tenants/$id/modules'
+    | '/super-admin/tenants/$id/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/clerk'
@@ -382,6 +448,12 @@ export interface FileRouteTypes {
     | '/tasks'
     | '/teachers'
     | '/users'
+    | '/super-admin/dashboard'
+    | '/super-admin/tenants'
+    | '/super-admin/tenants/$id'
+    | '/super-admin/tenants/register'
+    | '/super-admin/tenants/$id/modules'
+    | '/super-admin/tenants/$id/settings'
   id:
     | '__root__'
     | '/_authenticated'
@@ -417,6 +489,12 @@ export interface FileRouteTypes {
     | '/_authenticated/tasks/'
     | '/_authenticated/teachers/'
     | '/_authenticated/users/'
+    | '/_authenticated/super-admin/dashboard/'
+    | '/_authenticated/super-admin/tenants/'
+    | '/_authenticated/super-admin/tenants/$id/'
+    | '/_authenticated/super-admin/tenants/register/'
+    | '/_authenticated/super-admin/tenants/$id/modules/'
+    | '/_authenticated/super-admin/tenants/$id/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -667,6 +745,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedErrorsErrorRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/super-admin/tenants/': {
+      id: '/_authenticated/super-admin/tenants/'
+      path: '/super-admin/tenants'
+      fullPath: '/super-admin/tenants'
+      preLoaderRoute: typeof AuthenticatedSuperAdminTenantsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/super-admin/dashboard/': {
+      id: '/_authenticated/super-admin/dashboard/'
+      path: '/super-admin/dashboard'
+      fullPath: '/super-admin/dashboard'
+      preLoaderRoute: typeof AuthenticatedSuperAdminDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/super-admin/tenants/register/': {
+      id: '/_authenticated/super-admin/tenants/register/'
+      path: '/super-admin/tenants/register'
+      fullPath: '/super-admin/tenants/register'
+      preLoaderRoute: typeof AuthenticatedSuperAdminTenantsRegisterIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/super-admin/tenants/$id/': {
+      id: '/_authenticated/super-admin/tenants/$id/'
+      path: '/super-admin/tenants/$id'
+      fullPath: '/super-admin/tenants/$id'
+      preLoaderRoute: typeof AuthenticatedSuperAdminTenantsIdIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/super-admin/tenants/$id/settings/': {
+      id: '/_authenticated/super-admin/tenants/$id/settings/'
+      path: '/super-admin/tenants/$id/settings'
+      fullPath: '/super-admin/tenants/$id/settings'
+      preLoaderRoute: typeof AuthenticatedSuperAdminTenantsIdSettingsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/super-admin/tenants/$id/modules/': {
+      id: '/_authenticated/super-admin/tenants/$id/modules/'
+      path: '/super-admin/tenants/$id/modules'
+      fullPath: '/super-admin/tenants/$id/modules'
+      preLoaderRoute: typeof AuthenticatedSuperAdminTenantsIdModulesIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -705,6 +825,12 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedTasksIndexRoute: typeof AuthenticatedTasksIndexRoute
   AuthenticatedTeachersIndexRoute: typeof AuthenticatedTeachersIndexRoute
   AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
+  AuthenticatedSuperAdminDashboardIndexRoute: typeof AuthenticatedSuperAdminDashboardIndexRoute
+  AuthenticatedSuperAdminTenantsIndexRoute: typeof AuthenticatedSuperAdminTenantsIndexRoute
+  AuthenticatedSuperAdminTenantsIdIndexRoute: typeof AuthenticatedSuperAdminTenantsIdIndexRoute
+  AuthenticatedSuperAdminTenantsRegisterIndexRoute: typeof AuthenticatedSuperAdminTenantsRegisterIndexRoute
+  AuthenticatedSuperAdminTenantsIdModulesIndexRoute: typeof AuthenticatedSuperAdminTenantsIdModulesIndexRoute
+  AuthenticatedSuperAdminTenantsIdSettingsIndexRoute: typeof AuthenticatedSuperAdminTenantsIdSettingsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -719,6 +845,18 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedTasksIndexRoute: AuthenticatedTasksIndexRoute,
   AuthenticatedTeachersIndexRoute: AuthenticatedTeachersIndexRoute,
   AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
+  AuthenticatedSuperAdminDashboardIndexRoute:
+    AuthenticatedSuperAdminDashboardIndexRoute,
+  AuthenticatedSuperAdminTenantsIndexRoute:
+    AuthenticatedSuperAdminTenantsIndexRoute,
+  AuthenticatedSuperAdminTenantsIdIndexRoute:
+    AuthenticatedSuperAdminTenantsIdIndexRoute,
+  AuthenticatedSuperAdminTenantsRegisterIndexRoute:
+    AuthenticatedSuperAdminTenantsRegisterIndexRoute,
+  AuthenticatedSuperAdminTenantsIdModulesIndexRoute:
+    AuthenticatedSuperAdminTenantsIdModulesIndexRoute,
+  AuthenticatedSuperAdminTenantsIdSettingsIndexRoute:
+    AuthenticatedSuperAdminTenantsIdSettingsIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

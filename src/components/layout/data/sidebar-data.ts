@@ -25,6 +25,9 @@ import {
   GraduationCap,
   UserCheck,
   BookOpen,
+  Building2,
+  PlusCircle,
+  List,
 } from 'lucide-react'
 import { ClerkLogo } from '@/assets/clerk-logo'
 import { type SidebarData } from '../types'
@@ -196,6 +199,26 @@ export const sidebarData: SidebarData = {
           title: 'Help Center',
           url: '/help-center',
           icon: HelpCircle,
+        },
+      ],
+    },
+    {
+      title: 'Super Admin',
+      items: [
+        {
+          title: 'Super Admin Dashboard',
+          url: '/super-admin/dashboard',
+          icon: LayoutDashboard,
+        },
+        {
+          title: 'All Tenants',
+          url: '/super-admin/tenants',
+          icon: List,
+        },
+        {
+          title: 'Register Tenant',
+          url: '/super-admin/tenants/register',
+          icon: PlusCircle,
         },
       ],
     },
